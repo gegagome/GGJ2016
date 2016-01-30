@@ -69,8 +69,8 @@ public class GGJBehaviour : MonoBehaviour {
 
 	public void Start()
 	{
-		Messenger = GameObject.Find("World").GetComponent<MessageManager>();
-		if(!Messenger) Debug.LogError("World.MessageManager could not be found.  Insure there is a World object with a MessageManager script attached.");
+		Messenger = GameObject.Find("GameManager").GetComponent<MessageManager>();
+		if(!Messenger) Debug.LogError("GameManager.MessageManager could not be found.  Insure there is a GameManager object with a MessageManager script attached.");
 		OnStart();
 	}
 

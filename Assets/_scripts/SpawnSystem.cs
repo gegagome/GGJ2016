@@ -9,7 +9,7 @@ public class SpawnSystem : GGJBehaviour {
     private float SpawnTimer;
     private GameObject currentObstacle;
     public GameObject[] obstacleList;
-    public int[] zRange = {0, 3, 6};
+    //public int[] zRange = {0, 3, 6};
 
     void Start()
     {
@@ -18,12 +18,13 @@ public class SpawnSystem : GGJBehaviour {
 
     void Update()
     {
-        Debug.Log("Timer: " + timer);
+        //Debug.Log("Timer: " + timer);
         timer += Time.deltaTime;
         if (timer >= SpawnTimer)
         {
-            SpawnObstacle();
             timer = 0;
+            SpawnObstacle();
+
         }
     }
 
@@ -41,8 +42,8 @@ public class SpawnSystem : GGJBehaviour {
             currentObstacle = obstacleList[Random.Range(0, obstacleList.Length)];
         }
     */
-        GameObject spawnedObstacle = (GameObject) GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 0, zRange[Random.Range(0, 3)]), Quaternion.identity);
-        //spawnedObstacle.GetComponent<LaneableObject>().setLane(Random.Range(0, 2));
+        GameObject spawnedObstacle = (GameObject) GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 0, 0), Quaternion.identity);
+        spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
     }
 
 }
