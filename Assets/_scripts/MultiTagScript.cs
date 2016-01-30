@@ -7,6 +7,8 @@ public enum GGJTag{
 	Bull,
 	Goal,
 	Pickup,
+    RedBull,
+    Event
 }
 
 public class MultiTagScript : MonoBehaviour

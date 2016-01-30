@@ -3,11 +3,10 @@ using System.Collections;
 
 public class SpawnSystem : GGJBehaviour {
     public int MaxDifficulty;
+    public float SpawnTimer;
 
     private float timer;
     const int DefaultTimer = 2;
-    private float SpawnTimer;
-    private GameObject currentObstacle;
     public GameObject[] obstacleList;
     //public int[] zRange = {0, 3, 6};
 
@@ -24,7 +23,6 @@ public class SpawnSystem : GGJBehaviour {
         {
             timer = 0;
             SpawnObstacle();
-
         }
     }
 
@@ -35,15 +33,27 @@ public class SpawnSystem : GGJBehaviour {
 
     public void SpawnObstacle()
     {
-        currentObstacle = obstacleList[Random.Range(0, obstacleList.Length)];
-	/* Determines Difficult of the interval of spawned objects
-	    while (currentObstacle.GetComponent<LaneableObject>() != null)
+        GameObject currentObstacle = obstacleList[Random.Range(0, obstacleList.Length)];
+        /* Determines Difficult of the interval of spawned objects
+            while (currentObstacle.GetComponent<LaneableObject>() != null)
+            {
+                currentObstacle = obstacleList[Random.Range(0, obstacleList.Length)];
+            }
+        */
+        if (Utilities.hasMatchingTag(GGJTag.RedBull, currentObstacle))
         {
-            currentObstacle = obstacleList[Random.Range(0, obstacleList.Length)];
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 7, 0), Quaternion.identity);
+            spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
         }
-    */
-        GameObject spawnedObstacle = (GameObject) GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 0, 0), Quaternion.identity);
-        spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
+        else if (Utilities.hasMatchingTag(GGJTag.Event, currentObstacle))
+        {
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 2, 0), Quaternion.identity);
+        }
+        else
+        {
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 2, 0), Quaternion.identity);
+            spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
+        }
     }
 
 }

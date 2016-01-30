@@ -5,7 +5,7 @@ public class Goal : GGJBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        Debug.Log("Did i compile");
 	}
 	
 	// Update is called once per frame
@@ -15,9 +15,15 @@ public class Goal : GGJBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Obstacle"))
+        Debug.Log("I collide with shit: " + col.gameObject.name);
+        if (Utilities.hasMatchingTag(GGJTag.Obstacle, col.gameObject))
         {
             Destroy(col.gameObject);
+        }
+        if (Utilities.hasMatchingTag(GGJTag.Player, col.gameObject))
+        {
+            //win
+            Debug.Log("YOU WIN OMARI!");
         }
     }
 }
