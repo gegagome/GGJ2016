@@ -19,9 +19,6 @@ public class LaneChanger : MonoBehaviour {
 				value = 3;
 				Debug.Log("No more than three lanes are allowed! sorry.");
 			}
-			else if (value == 0) {
-				value = 1;
-			}
 		}
 	}
 
@@ -45,7 +42,7 @@ public class LaneChanger : MonoBehaviour {
 		Debug.Log(gameObject.name + " is currently in layer: " +  gameObject.layer);
 	}
 
-	void MoveUp () {
+	public void MoveUp () {
 		if (myLane == LaneOrder.Lane1) {
 			SetLane(2);
 		} else if  (myLane == LaneOrder.Lane2) {
@@ -53,7 +50,7 @@ public class LaneChanger : MonoBehaviour {
 		}
 	}
 
-	void MoveDown () {
+	public void MoveDown () {
 		if  (myLane == LaneOrder.Lane3) {
 			SetLane(2);
 		} else if  (myLane == LaneOrder.Lane2) {
@@ -61,11 +58,11 @@ public class LaneChanger : MonoBehaviour {
 		}
 	}
 
-	void Move (int moveZ) {
+	public void Move (int moveZ) {
 		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
 	}
 
-	void SetLane (int aLane) {
+	public void SetLane (int aLane) {
 		if (aLane == 1) {
 			myLane = LaneOrder.Lane1;
 			Move(0);
@@ -84,6 +81,10 @@ public class LaneChanger : MonoBehaviour {
 			gameObject.layer = Utilities.Row3;
 			myRenderer.sortingOrder = aLane;
 		}
-
+		else if (aLane == 0)
+		{
+			myLane = LaneOrder.All;
+			gameObject.layer = Utilities.AllRows;
+		}
 	}
 }
