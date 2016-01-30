@@ -1,16 +1,16 @@
-/*
+
 using UnityEngine;
 using System.Collections;
 using System;
 using System.IO;
 using System.Collections.Generic;
-*/
+
 
 /*
  * @author Omari Straker
  * */
  
-/*
+
 public class Score{
 	public int rank;
 	public string name;
@@ -98,13 +98,13 @@ public class HighScores : MonoBehaviour {
 		ListOfHighScores[2] = new Score (3,"Monta",11);
 		ListOfHighScores[3] = new Score (4,"Panda",10);
 		ListOfHighScores[4] = new Score (5,"Express",9);
-		ListOfHighScores[5] = new Score (6,"Samantha",8);
-		ListOfHighScores[6] = new Score (7,"Chad",7);
-		ListOfHighScores[7] = new Score (8,"Ichigo",6);
-		ListOfHighScores[8] = new Score (9,"Renji",5);
-		ListOfHighScores[9] = new Score (10,"Rukia",4);
-		ListOfHighScores[10] = new Score (11,"Ishida",3);
-		ListOfHighScores[11] = new Score (12,"Orihime",2);
-		ListOfHighScores[12] = new Score (13,"Wazero",1);
+		ListOfHighScores[5] = new Score (6,"German",8);
+		ListOfHighScores[6] = new Score (7,"Wynston",7);
+		ListOfHighScores[7] = new Score (8,"Archie",6);
+		ListOfHighScores[8] = new Score (9,"Erich",5);
+		ListOfHighScores[9] = new Score (10,"Donatello",4);
+		ListOfHighScores[10] = new Score (11,"Michelangelo",3);
+		ListOfHighScores[11] = new Score (12,"Raphael",2);
+		ListOfHighScores[12] = new Score (13,"Leonardo",1);
 	}
-}*/
+}

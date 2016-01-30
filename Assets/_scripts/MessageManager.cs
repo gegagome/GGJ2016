@@ -13,6 +13,8 @@ private List<Listener> listeners = new List<Listener>();
 		//Register self with Utilities (All this for good null checking)
 		Utilities.SetMessenger(this);
 	}
+
+
 	void Update()
 	{
 		/*if (Input.GetKeyDown("space"))
@@ -62,12 +64,16 @@ public class GGJBehaviour : MonoBehaviour {
 	//all objects will have reference to Messenger which functions as broadcaster
 	protected MessageManager Messenger;
 
+
+
+
 	public void Start()
 	{
 		Messenger = GameObject.Find("World").GetComponent<MessageManager>();
 		if(!Messenger) Debug.LogError("World.MessageManager could not be found.  Insure there is a World object with a MessageManager script attached.");
 		OnStart();
 	}
+
 
 	void OnDestroy()
 	{
@@ -84,6 +90,7 @@ public class GGJBehaviour : MonoBehaviour {
 	{
 
 	}
+
 
 }
 

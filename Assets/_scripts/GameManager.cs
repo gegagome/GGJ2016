@@ -1,10 +1,8 @@
-﻿/*
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : GGJBehaviour {
 	private GameObject Player; //the player
 	private float initialPlayerYPos; //the initial player position
 	public List<GameObject> events = new List<GameObject>(); //event array
@@ -16,22 +14,31 @@ public class GameManager : MonoBehaviour {
 	public static string stringToEdit = "Enter name";
 	public static bool userDead;
 	public static bool savedScore;
+	public static GameManager gM;
 
-	void Start() {
-		Player = GameObject.FindGameObjectWithTag ("Player");
+	protected override void OnStart()
+	{	Player = GameObject.FindGameObjectWithTag ("Player");
 		if (Player != null) {
 			initialPlayerYPos = Player.transform.position.y;
 		}
 		userDead = false;
 		savedScore = false;
 		score = 0;
-		//StartCoroutine (generateEvent());
+	}
+	void Awake()
+	{
+		if (!gM) {
+			gM = this;
+			DontDestroyOnLoad (gameObject);
+		} else {
+			Destroy (gameObject);
+		}
 	}
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.R)) {
-			Application.LoadLevel(1);
-		}
+		//if (Input.GetKey(KeyCode.R)) {
+		//	Utilities.LoadLevel(1);
+		//}
 		if (Player != null) {
 			score += Time.deltaTime;
 		}
@@ -76,9 +83,9 @@ public class GameManager : MonoBehaviour {
 				//print ("Clicked End Game");
 				Application.LoadLevel(1);
 			}
-			for (int i = 0; i <= 12; i++) {
+			/*for (int i = 0; i <= 12; i++) {
 				GUI.Box(new Rect(Screen.width/3, Screen.height/15 + Screen.height/15 + Screen.height/15*i, Screen.width/4, Screen.height/20), HighScores.ListOfHighScores[i].name + " HighScore " + (i+1) + ": " + HighScores.ListOfHighScores[i].score);
-			}
+			}*/
 			if (!savedScore) {
 				stringToEdit = GUI.TextField(new Rect(Screen.width/3, Screen.height/20, Screen.width/4, Screen.height/20), stringToEdit, 25);
 
@@ -127,4 +134,3 @@ public class GameManager : MonoBehaviour {
 }
 
 
-*/
