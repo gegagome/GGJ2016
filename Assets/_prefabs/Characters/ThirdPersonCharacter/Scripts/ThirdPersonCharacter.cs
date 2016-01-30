@@ -49,6 +49,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
+
+//			VerticalMover(move.z);
+
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
@@ -73,6 +76,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
+		}
+
+		public void VerticalMover (float v) {
+			if (v > 0) {
+				this.MoveUp();
+				Debug.Log(v);
+			}
+			else if (v < 0) {
+				this.MoveDown();
+				Debug.Log(v);
+			}
 		}
 
 

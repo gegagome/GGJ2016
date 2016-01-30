@@ -6,7 +6,8 @@ public class LaneChanger : MonoBehaviour {
 	public int myDifficulty;
 	uint laneNumber;
 	SpriteRenderer myRenderer;
-	LaneOrder myLane;
+	Rigidbody myRB;
+	public LaneOrder myLane;
 
 
 
@@ -24,12 +25,13 @@ public class LaneChanger : MonoBehaviour {
 
 	void Awake () {
 		myRenderer = GetComponent<SpriteRenderer>();
+		myRB = GetComponent<Rigidbody>();
 	}
 
 	void Start () {
 		myLane = LaneOrder.Lane3;
 	}
-
+//
 //	void Update () {
 //		if (Input.GetKeyUp(KeyCode.W)) {
 //			MoveUp();
@@ -57,7 +59,8 @@ public class LaneChanger : MonoBehaviour {
 	}
 
 	public void Move (int moveZ) {
-		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+		myRB.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+//		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
 	}
 
 	public void SetLane (int aLane) {
