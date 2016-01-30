@@ -29,7 +29,7 @@ public class LaneChanger : MonoBehaviour {
 	void Start () {
 		// we could randomize lanes?
 		// talabamusic@me.com
-		myLane = LaneOrder.Lane1;
+		myLane = LaneOrder.Lane3;
 	}
 
 	void Update () {
@@ -43,18 +43,18 @@ public class LaneChanger : MonoBehaviour {
 	}
 
 	public void MoveUp () {
-		if (myLane == LaneOrder.Lane1) {
+		if (myLane == LaneOrder.Lane3) {
 			SetLane(2);
 		} else if  (myLane == LaneOrder.Lane2) {
-			SetLane(3);
+			SetLane(1);
 		}
 	}
 
 	public void MoveDown () {
-		if  (myLane == LaneOrder.Lane3) {
+		if  (myLane == LaneOrder.Lane1) {
 			SetLane(2);
 		} else if  (myLane == LaneOrder.Lane2) {
-			SetLane(1);
+			SetLane(3);
 		}
 	}
 
@@ -65,7 +65,7 @@ public class LaneChanger : MonoBehaviour {
 	public void SetLane (int aLane) {
 		if (aLane == 1) {
 			myLane = LaneOrder.Lane1;
-			Move(0);
+			Move(6);
 			gameObject.layer = Utilities.Row1;
 			myRenderer.sortingOrder = aLane;
 		}
@@ -77,7 +77,7 @@ public class LaneChanger : MonoBehaviour {
 		}
 		else if (aLane == 3) {
 			myLane = LaneOrder.Lane3;
-			Move(6);
+			Move(0);
 			gameObject.layer = Utilities.Row3;
 			myRenderer.sortingOrder = aLane;
 		}
