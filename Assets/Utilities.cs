@@ -8,9 +8,10 @@ public static class Utilities
 
 	public static MessageManager Messenger;
 
-	public static int Row1 = 1 << 16;
-	public static int Row2 = 1 << 9;
-	public static int Row3 = 1 << 10;
+	public static int Row1 = 11;
+	public static int Row2 = 12;
+	public static int Row3 = 13;
+	public static int AllRows = 14;
 
 
 	/*

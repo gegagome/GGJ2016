@@ -3,10 +3,31 @@ using System.Collections;
 
 public class LaneChanger : MonoBehaviour {
 
-	const int MOVE_UP = 2;
-	const int MOVE_DOWN = -2;
-
+	public int myDifficulty;
+	uint laneNumber;
+	SpriteRenderer myRenderer;
 	LaneOrder myLane;
+
+
+
+	public uint LaneNumber {
+		get {
+			return laneNumber;
+		}
+		set {
+			if (value > 3) {
+				value = 3;
+				Debug.Log("No more than three lanes are allowed! sorry.");
+			}
+			else if (value == 0) {
+				value = 1;
+			}
+		}
+	}
+
+	void Awake () {
+		myRenderer = GetComponent<SpriteRenderer>();
+	}
 
 	void Start () {
 		// we could randomize lanes?
@@ -16,34 +37,53 @@ public class LaneChanger : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.W)) {
-			MoveUp(MOVE_UP);
+			MoveUp();
 		}
 		if (Input.GetKeyUp(KeyCode.S)) {
-			MoveDown(MOVE_DOWN);
+			MoveDown();
 		}
+		Debug.Log(gameObject.name + " is currently in layer: " +  gameObject.layer);
 	}
 
-	void MoveUp (int zPosition) {
+	void MoveUp () {
 		if (myLane == LaneOrder.Lane1) {
-			Move(zPosition);
-			myLane = LaneOrder.Lane2;
+			SetLane(2);
 		} else if  (myLane == LaneOrder.Lane2) {
-			Move(zPosition);
-			myLane = LaneOrder.Lane3;
+			SetLane(3);
 		}
 	}
 
-	void MoveDown (int zPosition) {
+	void MoveDown () {
 		if  (myLane == LaneOrder.Lane3) {
-			Move(zPosition);
-			myLane = LaneOrder.Lane2;
+			SetLane(2);
 		} else if  (myLane == LaneOrder.Lane2) {
-			Move(zPosition);
-			myLane = LaneOrder.Lane1;
+			SetLane(1);
 		}
 	}
 
 	void Move (int moveZ) {
-		transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + moveZ);
+		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+	}
+
+	void SetLane (int aLane) {
+		if (aLane == 1) {
+			myLane = LaneOrder.Lane1;
+			Move(0);
+			gameObject.layer = Utilities.Row1;
+			myRenderer.sortingOrder = aLane;
+		}
+		else if (aLane == 2) {
+			myLane = LaneOrder.Lane2;
+			Move(3);
+			gameObject.layer = Utilities.Row2;
+			myRenderer.sortingOrder = aLane;
+		}
+		else if (aLane == 3) {
+			myLane = LaneOrder.Lane3;
+			Move(6);
+			gameObject.layer = Utilities.Row3;
+			myRenderer.sortingOrder = aLane;
+		}
+
 	}
 }
