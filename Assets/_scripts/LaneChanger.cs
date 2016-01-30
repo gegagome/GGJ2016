@@ -27,20 +27,18 @@ public class LaneChanger : MonoBehaviour {
 	}
 
 	void Start () {
-		// we could randomize lanes?
-		// talabamusic@me.com
 		myLane = LaneOrder.Lane3;
 	}
 
-	void Update () {
-		if (Input.GetKeyUp(KeyCode.W)) {
-			MoveUp();
-		}
-		if (Input.GetKeyUp(KeyCode.S)) {
-			MoveDown();
-		}
-		Debug.Log(gameObject.name + " is currently in layer: " +  gameObject.layer);
-	}
+//	void Update () {
+//		if (Input.GetKeyUp(KeyCode.W)) {
+//			MoveUp();
+//		}
+//		if (Input.GetKeyUp(KeyCode.S)) {
+//			MoveDown();
+//		}
+//		Debug.Log(gameObject.name + " is currently in layer: " +  gameObject.layer);
+//	}
 
 	public void MoveUp () {
 		if (myLane == LaneOrder.Lane3) {
