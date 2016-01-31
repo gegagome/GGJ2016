@@ -23,7 +23,7 @@ public class OmariTest : LaneChanger {
 	void FixedUpdate()
 	{
 		if (!m_IsGrounded) {
-			m_Rigidbody.velocity += (.45f*Vector3.down);
+			//m_Rigidbody.velocity += (.45f*Vector3.down);
 		}
 	}
 	void Update () {	
