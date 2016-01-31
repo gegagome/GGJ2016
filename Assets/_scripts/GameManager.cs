@@ -43,14 +43,14 @@ public class GameManager : GGJBehaviour {
 		if (Player != null) {
 			score += Time.deltaTime*20;
 		}
-		if (!courRunning && Player != null) {
+		/*if (!courRunning && Player != null) {
 			courRunning = true;
 			StartCoroutine (generateEvent());
 		}
 		if (!courRunning2 && Player != null) {
 			courRunning2 = true;
 			StartCoroutine (generatePickup());
-		}
+		}*/
 	}
 
 	//Random generator 
