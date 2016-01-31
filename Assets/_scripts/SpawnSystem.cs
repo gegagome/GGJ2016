@@ -29,7 +29,7 @@ public class SpawnSystem : GGJBehaviour {
 		if (levelReference == null) { //for debug
 			levelReference = new Level ();
 		}
-        levelReference.LevelLengthInTime = 10;
+        levelReference.LevelLengthInTime = 25;
         SpawnTimer = levelReference.SpawnTimeInterval;
         initializeObstacleList();
     }
