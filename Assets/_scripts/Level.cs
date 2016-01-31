@@ -8,6 +8,8 @@ public class Level {
 	public float BlueBullChance;
 	public float OrangeBullChance;
 	public float YellowEventChance;
+    public float FenceChance;
+    public float CarChance;
 	public float TripleBullEventChance;
 	public float LevelLengthInTime;
 	public float SpawnTimeInterval = 2f;
@@ -23,17 +25,21 @@ public class Level {
 		this.BlueBullChance = 10;
 		this.OrangeBullChance = 10;
 		this.YellowEventChance = 10;
-		this.TripleBullEventChance = 50;
+        this.FenceChance = 10;
+        this.CarChance = 10;
+		this.TripleBullEventChance = 30;
 		this.LevelLengthInTime = 120;
 	}
-	public Level (float BrownBullChance, float RedEventChance, float BlueBullChance, float OrangeBullChance, float YellowEventChance, float TripleBullChance, float LevelLengthInTime, float SpawnTimeInterval)
+	public Level (float BrownBullChance, float RedEventChance, float BlueBullChance, float OrangeBullChance, float YellowEventChance, float FenceChance, float CarChance, float TripleBullChance, float LevelLengthInTime, float SpawnTimeInterval)
 	{
 		this.BrownBullChance = BrownBullChance;
 		this.RedEventChance = RedEventChance;
 		this.BlueBullChance = BlueBullChance;
 		this.OrangeBullChance = OrangeBullChance;
 		this.YellowEventChance = YellowEventChance;
-		this.TripleBullEventChance = TripleBullChance;
+        this.FenceChance = FenceChance;
+        this.CarChance = CarChance;
+        this.TripleBullEventChance = TripleBullChance;
 		this.LevelLengthInTime = LevelLengthInTime;
 		this.SpawnTimeInterval = SpawnTimeInterval;
 	}
