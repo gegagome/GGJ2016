@@ -31,6 +31,8 @@ public class Stage  {
         Level B1 = new Level(20, 10, 30, 0, 10, 10, 15, 5, 60, 2);
         Level B2 = new Level(20, 10, 20, 10, 10, 10, 15, 5, 60, 2);
         Level B3 = new Level(5, 10, 25, 10, 15, 5, 20, 10, 60, 2);
+		//Level B4 = new Level(5, 10, 25, 10, 15, 5, 20, 10, 60, 2);
+
 
         A.LevelsInStage.Add(A1);
         A.LevelsInStage.Add(A2);
@@ -39,17 +41,18 @@ public class Stage  {
         B.LevelsInStage.Add(B1);
         B.LevelsInStage.Add(B2);
         B.LevelsInStage.Add(B3);
+		//B.LevelsInStage.Add (B4);
 
 		GameStageList.Add(A);
         GameStageList.Add(B);
 
-
+		/*
 		GameStageList.Add (new Stage ());
 		GameStageList.Add (new Stage ());
 		GameStageList.Add (new Stage ());
 
 		GameStageList.Add (new Stage ());
-
+*/
 		StageListCount = GameStageList.Count;
 	}
 }

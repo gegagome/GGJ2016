@@ -22,11 +22,13 @@ public class SpawnSystem : GGJBehaviour {
 
     public bool victory = false;
 
-    private Level levelReference;
-    void Start()
+	public static Level levelReference;
+	protected override void OnStart()
     {
         //GGJBehaviourStart();
-        levelReference = new Level();
+		if (levelReference == null) { //for debug
+			levelReference = new Level ();
+		}
         levelReference.LevelLengthInTime = 10;
         SpawnTimer = levelReference.SpawnTimeInterval;
         initializeObstacleList();
