@@ -13,11 +13,26 @@ public static class Utilities
 	public static int Row3 = 13;
 	public static int AllRows = 14;
 
+	public static SoundManager blAH;
+
+	public static void PlayEffect(AudioClipSymbol lol)
+	{
+		if (blAH) {
+			blAH.playEffect (lol);
+		}
+	}
+
+	public static void PlayBG(BackgroundAudio lol)
+	{
+		if (blAH) {
+
+			Debug.Log ("hey i called it");
+			blAH.playBackground (lol);
+		}
+	}
 
 
-	/*
-	 * Checks passed in Game object to see if any of it's tags are of the requested value
-	 */ 
+	  
 	public static bool hasMatchingTag(GGJTag tagToCheckFor, GameObject objectToCheck)
 	{
 		MultiTagScript mult =  objectToCheck.GetComponent<MultiTagScript>();

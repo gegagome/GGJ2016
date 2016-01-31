@@ -7,6 +7,15 @@ public class SoundManager : MonoBehaviour {
     public AudioSource effects;
     public AudioSource bg;
 
+
+	void Start()
+	{
+		Debug.Log ("please");
+
+		Utilities.blAH = this;
+		Debug.Log ("ascbnsjcnksjnckjsdncks");
+
+	}
     public void playEffect(AudioClipSymbol symbol)
     {
         switch (symbol)
