@@ -1,39 +1,85 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnSystem : GGJBehaviour {
     public int MaxDifficulty;
     public float SpawnTimer;
-
     private float timer;
-    const int DefaultTimer = 2;
-    public GameObject[] obstacleList;
+    private float gameTimer;
+    public List<GameObject> obstacleList;
     //public int[] zRange = {0, 3, 6};
+    public GameObject brownBull;
+    public GameObject redBull;
+    public GameObject yellowBull;
+    public GameObject blueBull;
+    public GameObject fence;
+    public GameObject tripleBull;
 
+    public GameObject goal;
+
+    public GameObject player;
+
+    public bool victory = false;
+
+    private Level levelReference;
     void Start()
     {
-        SpawnTimer = DefaultTimer;
+        levelReference = new Level();
+        levelReference.LevelLengthInTime = 10;
+        SpawnTimer = levelReference.SpawnTimeInterval;
+        initializeObstacleList();
     }
 
     void Update()
     {
         //Debug.Log("Timer: " + timer);
         timer += Time.deltaTime;
-        if (timer >= SpawnTimer)
+        gameTimer += Time.deltaTime;
+        if (timer >= SpawnTimer && !victory)
         {
             timer = 0;
             SpawnObstacle();
         }
+        if (gameTimer >= levelReference.LevelLengthInTime && !victory)
+        {
+            Debug.Log("Victory!");
+            victory = true;
+            GameObject endGoal = (GameObject)GameObject.Instantiate(goal, new Vector3(player.transform.position.x + 40f, 2, 0), Quaternion.identity);
+        }
+        player.GetComponent<Rigidbody>().velocity = new Vector3(10, 0, 0);
     }
 
-    void StartLevel()
+    void initializeObstacleList()
     {
         
+        //Debug.Log("Probability: " + levelReference.BrownBullChance + " || Obstacle: " + brownBull);
+        addObstacles(levelReference.BlueBullChance, blueBull);
+        addObstacles(levelReference.BrownBullChance, brownBull);
+        addObstacles(levelReference.RedEventChance, redBull);
+        addObstacles(levelReference.YellowEventChance, yellowBull);
+        addObstacles(levelReference.TripleBullEventChance, tripleBull);
+        addObstacles(levelReference.OrangeBullChance, fence);
+    }
+
+    void addObstacles(float probability, GameObject obstacle)
+    {
+        //Debug.Log("Probability: " + probability + " || Obstacle: " + obstacle);
+        for (int i = 0; i < probability; i++)
+        {
+            if (obstacle != null)
+            {
+                obstacleList.Add(obstacle);
+            } else
+            {
+                obstacleList.Add(brownBull);
+            }
+        }
     }
 
     public void SpawnObstacle()
     {
-        GameObject currentObstacle = obstacleList[Random.Range(0, obstacleList.Length)];
+        GameObject currentObstacle = obstacleList[Random.Range(0, obstacleList.Count)];
         /* Determines Difficult of the interval of spawned objects
             while (currentObstacle.GetComponent<LaneableObject>() != null)
             {
@@ -44,6 +90,7 @@ public class SpawnSystem : GGJBehaviour {
         {
             GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 7, 0), Quaternion.identity);
             spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
+            spawnedObstacle.transform.Rotate(new Vector2(0, 0));
         }
         else if (Utilities.hasMatchingTag(GGJTag.Event, currentObstacle))
         {
@@ -53,6 +100,7 @@ public class SpawnSystem : GGJBehaviour {
         {
             GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 2, 0), Quaternion.identity);
             spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
+            spawnedObstacle.transform.Rotate(new Vector2(0, 0));
         }
     }
 

@@ -36,7 +36,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			if (!m_Jump)
 			{
-				m_Jump = Input.GetButtonUp("Jump");
+				m_Jump = Input.GetButtonDown("Jump");
 			}
 			if (dPadScript1.UpPressed ()) {
 				m_Character.MoveUp ();
@@ -52,7 +52,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private void FixedUpdate()
 		{
 			// read inputs
-			float h = Input.GetAxis("Horizontal");
+			//float h = Input.GetAxis("Horizontal");
 			//float v = Input.GetAxis("Vertical");
 			bool crouch = Input.GetKey(KeyCode.C);
 
@@ -69,7 +69,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 // we use world-relative directions in the case of no main camera
                 //Debug.Log("Vec3.right " + Vector3.right);
-                m_Move = h*Vector3.right;
+                float h = 1;
+                //m_Move = h*Vector3.right;
             }
 #if !MOBILE_INPUT
             //Debug.Log("MOVE: " + m_Move);
