@@ -25,10 +25,10 @@ public class Level {
 		this.RedEventChance = 10;
 		this.BlueBullChance = 10;
 		this.OrangeBullChance = 10;
-		this.YellowEventChance = 10;
+		this.YellowEventChance = 30;
         this.FenceChance = 10;
         this.CarChance = 10;
-		this.TripleBullEventChance = 30;
+		this.TripleBullEventChance = 10;
 		this.LevelLengthInTime = 120;
 		this.DifficultyTimeRamp = 90f;
 	}

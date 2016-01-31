@@ -16,7 +16,10 @@ public class BullTest : LaneChanger {
 		if (Utilities.hasMatchingTag(GGJTag.Player, col.gameObject))
 		{
 			Debug.Log(gameObject.name + " hit " + col.gameObject.name);
-			GameObject parentPlayerObject = col.gameObject.transform.parent.gameObject;
+            Debug.Log("|||BullLayer: " + gameObject.layer + " Player Layer " + col.gameObject.layer + "|||");
+            Debug.Log("|||Bull Z: " + gameObject.transform.position.z + " Player Z: " + col.gameObject.transform.position.z + " |||");
+            Debug.Log("|||Bull Curz: " + curZ);
+            GameObject parentPlayerObject = col.gameObject.transform.parent.gameObject;
 			OmariTest playerScript = parentPlayerObject.GetComponent<OmariTest> ();
 			if (!playerScript.recentlyHit) {
 				playerScript.recentlyHit = true;

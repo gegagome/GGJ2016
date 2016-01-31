@@ -20,8 +20,10 @@ public class Goal : GGJBehaviour {
             //win
 			Debug.Log(gameObject.transform.rotation +" rotation");
 			Debug.Log(gameObject.transform.position +" position");
-
-            Debug.Log("YOU WIN OMARI!");
+            Utilities.PlayEffect(AudioClipSymbol.AnnGoal);
+            GameManager.LevelRunning = false;
+            
+            //Debug.Log("YOU WIN OMARI!");
         }
     }
 }
