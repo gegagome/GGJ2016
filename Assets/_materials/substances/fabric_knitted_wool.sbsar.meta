@@ -1,18 +1,25 @@
 fileFormatVersion: 2
-guid: 97abe20f7ee714fb3830314743c833ed
-timeCreated: 1454214257
+guid: 52238f7b75b8a4d19907c8d29bb27566
+timeCreated: 1454214521
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
   - serializedVersion: 16
-    name: leather_001
-    prototypeName: leather_001
+    name: fabric_knitted_wool
+    prototypeName: fabric_knitted_wool
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
     shaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: -1
     lightmapFlags: 5
     inputs:
+    - name: fabric_color_3
+      value:
+        scalar[0]: 0
+        scalar[1]: 0.5034485
+        scalar[2]: 1
+        scalar[3]: 0
+        texture: {instanceID: 0}
     - name: $outputsize
       value:
         scalar[0]: 8
@@ -27,35 +34,35 @@ SubstanceImporter:
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: luminosity
-      value:
-        scalar[0]: 0.5
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: contrast
+    - name: Hue_Shift
       value:
         scalar[0]: 0
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: hue_shift
-      value:
-        scalar[0]: 0
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: saturation
+    - name: Saturation
       value:
         scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: normal_intensity
+    - name: Luminosity
+      value:
+        scalar[0]: 0.5
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    - name: Contrast
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    - name: Normal_Intensity
       value:
         scalar[0]: 0.5
         scalar[1]: 0
@@ -69,16 +76,9 @@ SubstanceImporter:
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: ao_spreading
-      value:
-        scalar[0]: 0.5
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
     - name: height_range
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.1
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -90,59 +90,45 @@ SubstanceImporter:
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
-    - name: fasteners
+    - name: fabric_color_1
       value:
-        scalar[0]: 0
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: quicunx_fasteners
-      value:
-        scalar[0]: 0
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: fasteners_depth
-      value:
-        scalar[0]: 0
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: cracks
-      value:
-        scalar[0]: 0.5
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: fasteners_number
-      value:
-        scalar[0]: 2
-        scalar[1]: 0
-        scalar[2]: 0
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: leather_color
-      value:
-        scalar[0]: 0.329397
-        scalar[1]: 0.333303
-        scalar[2]: 0.360693
-        scalar[3]: 0
-        texture: {instanceID: 0}
-    - name: fasteners_color
-      value:
-        scalar[0]: 0.929412
+        scalar[0]: 0.94482756
         scalar[1]: 1
-        scalar[2]: 0.470588
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    - name: fabric_color_2
+      value:
+        scalar[0]: 0.06799604
+        scalar[1]: 0.6911765
+        scalar[2]: 0.04573962
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    - name: pattern_scale
+      value:
+        scalar[0]: 9.1
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0
+        texture: {instanceID: 0}
+    - name: dirt_color
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
+        scalar[3]: 0.501961
+        texture: {instanceID: 0}
+    - name: dirt_amount
+      value:
+        scalar[0]: 0
+        scalar[1]: 0
+        scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     materialInformation:
       serializedVersion: 5
-      offset: {x: 0.44, y: 0}
-      scale: {x: 2, y: 2}
+      offset: {x: 0, y: 0}
+      scale: {x: 1, y: 1}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 42
@@ -154,15 +140,15 @@ SubstanceImporter:
             name: _MainTex
           second:
             texture: {instanceID: 0}
-            scale: {x: 2, y: 2}
-            offset: {x: 0.44, y: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
         data:
           first:
             name: _BumpMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 2, y: 2}
-            offset: {x: 0.44, y: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
         data:
           first:
             name: _DetailNormalMap
@@ -175,22 +161,22 @@ SubstanceImporter:
             name: _ParallaxMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 2, y: 2}
-            offset: {x: 0.44, y: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
         data:
           first:
             name: _OcclusionMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 2, y: 2}
-            offset: {x: 0.44, y: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
         data:
           first:
             name: _EmissionMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 2, y: 2}
-            offset: {x: 0.44, y: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
         data:
           first:
             name: _DetailMask
@@ -210,8 +196,8 @@ SubstanceImporter:
             name: _MetallicGlossMap
           second:
             texture: {instanceID: 0}
-            scale: {x: 2, y: 2}
-            offset: {x: 0.44, y: 0}
+            scale: {x: 1, y: 1}
+            offset: {x: 0, y: 0}
       floats:
         data:
           first:
@@ -269,29 +255,29 @@ SubstanceImporter:
         data:
           first:
             name: _Color
-          second: {r: 1, g: 0.375, b: 0.375, a: 1}
+          second: {r: 1, g: 0, b: 0.366, a: 1}
     textureParameters:
-    - name: leather_001_basecolor
+    - name: fabric_knitted_wool_basecolor
       alphaSource: 6
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: leather_001_normal
+    - name: fabric_knitted_wool_normal
       alphaSource: 0
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: leather_001_metallic
+    - name: fabric_knitted_wool_metallic
       alphaSource: 7
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: leather_001_ambient_occlusion_1
+    - name: fabric_knitted_wool_ambient_occlusion
       alphaSource: 0
       filterMode: 1
       aniso: 1
       wrapMode: 0
-    - name: leather_001_height
+    - name: fabric_knitted_wool_height
       alphaSource: 0
       filterMode: 1
       aniso: 1
@@ -300,23 +286,23 @@ SubstanceImporter:
     - shaderProp:
         name: _MainTex
       material: {instanceID: 0}
-      baseUID: 2356388006
+      baseUID: 1451293269
     - shaderProp:
         name: _BumpMap
       material: {instanceID: 0}
-      baseUID: 2356388000
+      baseUID: 1451286645
     - shaderProp:
         name: _ParallaxMap
       material: {instanceID: 0}
-      baseUID: 2356388020
+      baseUID: 1451286925
     - shaderProp:
         name: _OcclusionMap
       material: {instanceID: 0}
-      baseUID: 2356388010
+      baseUID: 776499185
     - shaderProp:
         name: _MetallicGlossMap
       material: {instanceID: 0}
-      baseUID: 2356388008
+      baseUID: 776499191
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
