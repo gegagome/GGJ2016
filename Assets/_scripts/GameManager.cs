@@ -24,6 +24,7 @@ public class GameManager : GGJBehaviour {
 		userDead = false;
 		savedScore = false;
 		score = 0;
+		Stage.InitializeStageList ();
 	}
 	void Awake()
 	{

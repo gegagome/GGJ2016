@@ -68,19 +68,27 @@ public class LaneChanger : MonoBehaviour {
 			myLane = LaneOrder.Lane1;
 			Move(6);
 			gameObject.layer = Utilities.Row1;
-			myRenderer.sortingOrder = aLane;
+			if (myRenderer) {
+				myRenderer.sortingOrder = aLane;
+			}
 		}
 		else if (aLane == 2) {
 			myLane = LaneOrder.Lane2;
 			Move(3);
 			gameObject.layer = Utilities.Row2;
-			myRenderer.sortingOrder = aLane;
+			if (myRenderer) {
+				
+				myRenderer.sortingOrder = aLane;
+			}
 		}
 		else if (aLane == 3) {
 			myLane = LaneOrder.Lane3;
 			Move(0);
 			gameObject.layer = Utilities.Row3;
-			myRenderer.sortingOrder = aLane;
+			if (myRenderer) {
+				
+				myRenderer.sortingOrder = aLane;
+			}
 		}
 		else if (aLane == 0)
 		{

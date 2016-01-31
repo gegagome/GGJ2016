@@ -11,7 +11,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
-
+		public DPadButtons dPadScript1;
         
         private void Start()
         {
@@ -37,6 +37,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (!m_Jump)
 			{
 				m_Jump = Input.GetButtonUp("Jump");
+			}
+			if (dPadScript1.UpPressed ()) {
+				m_Character.MoveUp ();
+			}
+			else if (dPadScript1.DownPressed())
+			{
+				m_Character.MoveDown();
 			}
 		}
 
@@ -67,7 +74,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
 
             // pass all parameters to the character control script
-			m_Character.VerticalMover((float)v);
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }

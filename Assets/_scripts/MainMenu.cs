@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : GGJBehaviour {
 
 	// Use this for initialization
 	void Start () {

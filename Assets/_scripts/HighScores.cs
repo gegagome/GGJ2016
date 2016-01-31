@@ -24,7 +24,7 @@ public class Score{
 	}
 }
 
-public class HighScores : MonoBehaviour {
+public class HighScores : GGJBehaviour {
 
 	private const int numOfHighScores = 13;
 	public static string HighScoreFilePath = Application.persistentDataPath + "/HighScores.hanabi";
