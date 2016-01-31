@@ -25,6 +25,7 @@ public class SpawnSystem : GGJBehaviour {
     public bool victory = false;
 
 	public static Level levelReference;
+	public bool SpawnSystemActive = false;
 	protected override void OnStart()
     {
         //GGJBehaviourStart();
@@ -37,7 +38,9 @@ public class SpawnSystem : GGJBehaviour {
     }
 
     void Update()
-    {
+	{if (SpawnSystemActive == false) {
+			return;
+		}
         //Debug.Log("Timer: " + timer);
         timer += Time.deltaTime;
         gameTimer += Time.deltaTime;
@@ -48,7 +51,7 @@ public class SpawnSystem : GGJBehaviour {
         }
         if (gameTimer >= levelReference.LevelLengthInTime && !victory)
         {
-            Debug.Log("Victory!");
+            Debug.Log("Victory Goal generated!");
             victory = true;
             GameObject endGoal = (GameObject)GameObject.Instantiate(goal, new Vector3(player.transform.position.x + 40f, 2, 0), Quaternion.identity);
         }
