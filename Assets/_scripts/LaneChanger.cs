@@ -27,7 +27,7 @@ public class LaneChanger : MonoBehaviour {
 	void Awake () {
 		myRenderer = GetComponent<SpriteRenderer>();
 		myRB = GetComponent<Rigidbody>();
-        curZ = 0;
+        curZ = 3;
 	}
 
     void Update ()
