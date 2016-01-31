@@ -13,6 +13,8 @@ public class OmariTest : LaneChanger {
 	public float playerVelocity  =10;
  	public SkinnedMeshRenderer mybodyRenderer;
 	public int health;
+    public SoundManager sm;
+
 	// Use this for initialization
 	protected override void OnStart () {
 		base.OnStart ();
