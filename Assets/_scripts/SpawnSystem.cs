@@ -53,7 +53,7 @@ public class SpawnSystem : GGJBehaviour {
         {
             Debug.Log("Victory Goal generated!");
             victory = true;
-            GameObject endGoal = (GameObject)GameObject.Instantiate(goal, new Vector3(player.transform.position.x + 40f, 2, 0), Quaternion.identity);
+            GameObject endGoal = (GameObject)GameObject.Instantiate(goal, new Vector3(player.transform.position.x + 40f, 10, 0), Quaternion.identity);
         }
         //player.GetComponent<Rigidbody>().velocity = new Vector3(10, 0, 0);
     }
@@ -103,6 +103,11 @@ public class SpawnSystem : GGJBehaviour {
         else if (Utilities.hasMatchingTag(GGJTag.Event, currentObstacle))
         {
             GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 15, 0, 0), Quaternion.identity);
+        }
+        else if (Utilities.hasMatchingTag(GGJTag.Fence, currentObstacle))
+        {
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x + 20, 0, 0), Quaternion.identity);
+            spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
         }
         else
         {

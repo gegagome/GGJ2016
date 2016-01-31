@@ -47,8 +47,10 @@ public class LaneChanger : GGJBehaviour {
 
     protected virtual void baseUpdate()
     {
+
         if (myRB != null)
         {
+            Debug.Log("Gameobject: " + gameObject.name);
             Debug.Log(gameObject.name + "    cur z   " + curZ);
             myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
         }
