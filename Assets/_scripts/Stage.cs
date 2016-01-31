@@ -23,14 +23,14 @@ public class Stage  {
         //Brown, Red, Blue, Orange, Yellow, Fence, Car, Triple, Level_Length, Spawn_Time
 
 		Stage A = new Stage (); 
-        Level A1 = new Level(50, 10, 20, 0, 0, 10, 0, 0, 60, 2);
-        Level A2 = new Level(30, 10, 30, 0, 0, 20, 0, 10, 60, 2);
-        Level A3 = new Level(30, 10, 25, 15, 0, 10, 0, 10, 60, 2);
+        Level A1 = new Level(50, 10, 20, 0, 0, 10, 0, 0, 60, 2,90);
+		Level A2 = new Level(30, 10, 30, 0, 0, 20, 0, 10, 60, 2,90);
+		Level A3 = new Level(30, 10, 25, 15, 0, 10, 0, 10, 60, 2,90);
 
         Stage B = new Stage();
-        Level B1 = new Level(20, 10, 30, 0, 10, 10, 15, 5, 60, 2);
-        Level B2 = new Level(20, 10, 20, 10, 10, 10, 15, 5, 60, 2);
-        Level B3 = new Level(5, 10, 25, 10, 15, 5, 20, 10, 60, 2);
+		Level B1 = new Level(20, 10, 30, 0, 10, 10, 15, 5, 60, 2,90);
+		Level B2 = new Level(20, 10, 20, 10, 10, 10, 15, 5, 60, 2,90);
+		Level B3 = new Level(5, 10, 25, 10, 15, 5, 20, 10, 60, 2,90);
 		//Level B4 = new Level(5, 10, 25, 10, 15, 5, 20, 10, 60, 2);
 
 
