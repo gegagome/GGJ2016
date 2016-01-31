@@ -60,7 +60,7 @@ public class LaneChanger : GGJBehaviour {
     }
 
 	protected override void OnStart () {
-		myLane = LaneOrder.Lane3;
+		myLane = LaneOrder.Lane2;
 	}
 //
 //	void Update () {
