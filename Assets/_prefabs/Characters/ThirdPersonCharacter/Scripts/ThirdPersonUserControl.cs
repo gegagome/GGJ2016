@@ -34,6 +34,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		private void Update()
 		{
+			//Debug.Log(GetComponent<Rigidbody>().velocity);
+
 			if (!m_Jump)
 			{
 				m_Jump = Input.GetButtonDown("Jump");

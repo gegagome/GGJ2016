@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LaneChanger : MonoBehaviour {
+public class LaneChanger : GGJBehaviour {
 
 	public int myDifficulty;
 	uint laneNumber;
 	SpriteRenderer myRenderer;
 	Rigidbody myRB;
-    private int curZ;
+	protected int curZ;
 	public LaneOrder myLane;
 
 
@@ -32,12 +32,15 @@ public class LaneChanger : MonoBehaviour {
 
     void Update ()
     {
-        if (myRB != null) {
-            myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
-        }
+		if (myRB != null) {
+			Debug.Log (gameObject.name + "    cur z   " + curZ);
+			myRB.transform.position = new Vector3 (transform.position.x, transform.position.y, curZ);
+		} else {
+			//Debug.LogWarning (gameObject.name + "   am i buggin?");
+		}
     }
 
-	void Start () {
+	protected override void OnStart () {
 		myLane = LaneOrder.Lane3;
 	}
 //

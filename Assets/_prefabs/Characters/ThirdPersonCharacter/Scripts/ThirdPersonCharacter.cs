@@ -35,6 +35,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void Update()
         {
             hackCollider.gameObject.layer = gameObject.layer;
+			hackCollider.gameObject.transform.rotation = Quaternion.Euler (0, 0, 0);
         }
 
 		void Start()
@@ -208,6 +209,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			// help the character turn faster (this is in addition to root rotation in the animation)
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
+			Debug.Log ("Old transform rotation " + gameObject.transform.rotation);
 		}
 
 

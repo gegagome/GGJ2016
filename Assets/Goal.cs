@@ -10,7 +10,7 @@ public class Goal : GGJBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        //Debug.Log("I collide with shit: " + col.gameObject.name);
+        Debug.Log("I collide with shit: " + col.gameObject.name);
         if (Utilities.hasMatchingTag(GGJTag.Obstacle, col.gameObject))
         {
             Destroy(col.gameObject);
@@ -18,6 +18,9 @@ public class Goal : GGJBehaviour {
         if (Utilities.hasMatchingTag(GGJTag.Player, col.gameObject))
         {
             //win
+			Debug.Log(gameObject.transform.rotation +" rotation");
+			Debug.Log(gameObject.transform.position +" position");
+
             Debug.Log("YOU WIN OMARI!");
         }
     }
