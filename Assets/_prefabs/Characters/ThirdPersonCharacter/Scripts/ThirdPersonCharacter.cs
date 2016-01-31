@@ -46,19 +46,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
 
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired
-			// direction.
+            // convert the world relative moveInput vector into a local-relative
+            // turn amount and forward amount required to head in the desired
+            // direction.
 
-//			VerticalMover(move.z);
-
+            //			VerticalMover(move.z);
+            //Debug.LogWarning("move before normalize " + move);
 			if (move.magnitude > 1f) move.Normalize();
+            //Debug.LogWarning("move after normalize  " + move);
 			move = transform.InverseTransformDirection(move);
+            //move.z = 0f;
+            //Debug.LogWarning("move after inverse transformer direction" + move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
-
+            Debug.Log("move.z : " + move.z);
 			ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:

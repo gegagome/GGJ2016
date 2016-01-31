@@ -7,6 +7,7 @@ public class LaneChanger : MonoBehaviour {
 	uint laneNumber;
 	SpriteRenderer myRenderer;
 	Rigidbody myRB;
+    private int curZ;
 	public LaneOrder myLane;
 
 
@@ -26,7 +27,13 @@ public class LaneChanger : MonoBehaviour {
 	void Awake () {
 		myRenderer = GetComponent<SpriteRenderer>();
 		myRB = GetComponent<Rigidbody>();
+        curZ = 0;
 	}
+
+    void Update ()
+    {
+        myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
+    }
 
 	void Start () {
 		myLane = LaneOrder.Lane3;
@@ -59,9 +66,13 @@ public class LaneChanger : MonoBehaviour {
 	}
 
 	public void Move (int moveZ) {
-		myRB.position = new Vector3(transform.position.x, transform.position.y, moveZ);
-//		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
-	}
+        curZ = moveZ;
+        if (myRB != null)
+        {
+            myRB.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+            //		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+        }
+        }
 
 	public void SetLane (int aLane) {
 		if (aLane == 1) {
