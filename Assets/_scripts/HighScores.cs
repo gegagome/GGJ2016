@@ -93,18 +93,18 @@ public class HighScores : GGJBehaviour {
 	public static void CreateHighScoreDefaultSet()
 	{
 		ListOfHighScores = new Score[numOfHighScores];
-		ListOfHighScores[0] = new Score (1,"Hanabi",13);
-		ListOfHighScores[1] = new Score (2,"Pham",12);
-		ListOfHighScores[2] = new Score (3,"Monta",11);
-		ListOfHighScores[3] = new Score (4,"Panda",10);
-		ListOfHighScores[4] = new Score (5,"Express",9);
-		ListOfHighScores[5] = new Score (6,"German",8);
-		ListOfHighScores[6] = new Score (7,"Wynston",7);
-		ListOfHighScores[7] = new Score (8,"Archie",6);
-		ListOfHighScores[8] = new Score (9,"Erich",5);
-		ListOfHighScores[9] = new Score (10,"Donatello",4);
-		ListOfHighScores[10] = new Score (11,"Michelangelo",3);
-		ListOfHighScores[11] = new Score (12,"Raphael",2);
-		ListOfHighScores[12] = new Score (13,"Leonardo",1);
+		ListOfHighScores[0] = new Score (1,"Hanabi",1300);
+		ListOfHighScores[1] = new Score (2,"Pham",1200);
+		ListOfHighScores[2] = new Score (3,"Monta",1100);
+		ListOfHighScores[3] = new Score (4,"Panda",1000);
+		ListOfHighScores[4] = new Score (5,"Express",900);
+		ListOfHighScores[5] = new Score (6,"German",800);
+		ListOfHighScores[6] = new Score (7,"Wynston",700);
+		ListOfHighScores[7] = new Score (8,"Archie",600);
+		ListOfHighScores[8] = new Score (9,"Erich",500);
+		ListOfHighScores[9] = new Score (10,"Donatello",400);
+		ListOfHighScores[10] = new Score (11,"Michelangelo",300);
+		ListOfHighScores[11] = new Score (12,"Raphael",200);
+		ListOfHighScores[12] = new Score (13,"Leonardo",100);
 	}
 }

@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
 		public int maxHealth = 4;
-		protected int health;
+		public int health;
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
 		bool m_IsGrounded;

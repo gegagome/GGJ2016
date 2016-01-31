@@ -41,7 +41,7 @@ public class GameManager : GGJBehaviour {
 		//	Utilities.LoadLevel(1);
 		//}
 		if (Player != null) {
-			score += Time.deltaTime;
+			score += Time.deltaTime*20;
 		}
 		if (!courRunning && Player != null) {
 			courRunning = true;
@@ -73,7 +73,7 @@ public class GameManager : GGJBehaviour {
 	//text for the score
 	void OnGUI() {
 		string currentScore = score.ToString ("#"); //#.0 makes the decimal
-		GUI.Label (new Rect (50, 75, 100, 100), "Score: " + currentScore);
+		//GUI.Label (new Rect (50, 75, 100, 100), "Score: " + currentScore);
 
 		if (userDead) {
 			if (GUI.Button (new Rect(0, 0, Screen.width/4, Screen.height/20),"End Game")) {
