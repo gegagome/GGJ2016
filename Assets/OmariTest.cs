@@ -48,13 +48,16 @@ public class OmariTest : LaneChanger {
 				//m_Animator.SetBool("OnGround", m_IsGrounded); //when used with animation jump velocity is being cut harshly
 				m_Rigidbody.velocity = new Vector3 (m_Rigidbody.velocity.x, m_JumpPower, m_Rigidbody.velocity.z);
 			}
+			Utilities.PlayEffect (AudioClipSymbol.PlayerJump6);
 		}
 		if (dPadScript1.UpPressed ()) {
 			MoveUp ();
+			Utilities.PlayEffect (AudioClipSymbol.PlayerJump1);
 		}
 		else if (dPadScript1.DownPressed())
 		{
 			MoveDown();
+			Utilities.PlayEffect (AudioClipSymbol.PlayerJump2);
 		}
 
 
