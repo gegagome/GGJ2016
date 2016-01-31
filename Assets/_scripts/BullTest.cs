@@ -10,6 +10,7 @@ public class BullTest : LaneChanger {
 	
 	// Update is called once per frame
 	void Update () {
+        baseUpdate();
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
     }
 

@@ -6,7 +6,7 @@ public class LaneChanger : GGJBehaviour {
 	public int myDifficulty;
 	uint laneNumber;
 	SpriteRenderer myRenderer;
-	Rigidbody myRB;
+	Rigidbody2D myRB;
 	protected int curZ;
 	public LaneOrder myLane;
 
@@ -26,18 +26,35 @@ public class LaneChanger : GGJBehaviour {
 
 	void Awake () {
 		myRenderer = GetComponent<SpriteRenderer>();
-		myRB = GetComponent<Rigidbody>();
-        curZ = 3;
+		myRB = GetComponent<Rigidbody2D>();
+
+        if (gameObject.layer.Equals(Utilities.Row1))
+        {
+            curZ = 6;
+        } else if (gameObject.layer.Equals(Utilities.Row3))
+        {
+            curZ = 0;
+        } else
+        {
+            curZ = 3;
+        }
 	}
 
     void Update ()
     {
-		if (myRB != null) {
-			Debug.Log (gameObject.name + "    cur z   " + curZ);
-			myRB.transform.position = new Vector3 (transform.position.x, transform.position.y, curZ);
-		} else {
-			//Debug.LogWarning (gameObject.name + "   am i buggin?");
-		}
+        baseUpdate();
+    }
+
+    protected virtual void baseUpdate()
+    {
+        if (myRB != null)
+        {
+            Debug.Log(gameObject.name + "    cur z   " + curZ);
+            myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
+        }
+        else {
+            //Debug.LogWarning (gameObject.name + "   am i buggin?");
+        }
     }
 
 	protected override void OnStart () {
@@ -72,11 +89,12 @@ public class LaneChanger : GGJBehaviour {
 
 	public void Move (int moveZ) {
         curZ = moveZ;
-        if (myRB != null)
-        {
-            myRB.position = new Vector3(transform.position.x, transform.position.y, moveZ);
-            //		transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
-        }
+            if (myRB != null)
+            {
+                //Debug.Log("Object: " + gameObject.name + " RB: " + myRB + " Current Z: " + gameObject.transform.position.z + " Expected Z: " + moveZ);
+                myRB.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+                //transform.position = new Vector3(transform.position.x, transform.position.y, moveZ);
+            }
         }
 
 	public void SetLane (int aLane) {
