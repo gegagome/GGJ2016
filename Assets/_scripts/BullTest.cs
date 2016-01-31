@@ -4,9 +4,6 @@ using System.Collections;
 public class BullTest : LaneChanger {
     public int speed = 10;
 	// Use this for initialization
-	void Start () {
-        
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -14,11 +11,22 @@ public class BullTest : LaneChanger {
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
     }
 
-    void OnCollisionStay2D(Collision2D col)
-    {
-        if (Utilities.hasMatchingTag(GGJTag.Player, col.gameObject))
-        {
-            Debug.Log(gameObject.name + " hit " + col.gameObject.name);
-        }
-    }
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (Utilities.hasMatchingTag(GGJTag.Player, col.gameObject))
+		{
+			Debug.Log(gameObject.name + " hit " + col.gameObject.name);
+			GameObject parentPlayerObject = col.gameObject.transform.parent.gameObject;
+			OmariTest playerScript = parentPlayerObject.GetComponent<OmariTest> ();
+			if (!playerScript.recentlyHit) {
+				playerScript.recentlyHit = true;
+				Debug.Log("come on");
+
+				Physics2D.IgnoreCollision (col.collider, GetComponent<Collider2D> ());
+				parentPlayerObject.SendMessage ("ChangeHealth", -1, SendMessageOptions.DontRequireReceiver);
+				parentPlayerObject.SendMessage ("StartFlicker", SendMessageOptions.DontRequireReceiver);
+			}
+			Destroy (gameObject);
+		}
+	}
 }
