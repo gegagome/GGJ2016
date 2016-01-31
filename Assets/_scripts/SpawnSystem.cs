@@ -25,6 +25,7 @@ public class SpawnSystem : GGJBehaviour {
     private Level levelReference;
     void Start()
     {
+        //GGJBehaviourStart();
         levelReference = new Level();
         levelReference.LevelLengthInTime = 10;
         SpawnTimer = levelReference.SpawnTimeInterval;
@@ -88,17 +89,17 @@ public class SpawnSystem : GGJBehaviour {
         */
         if (Utilities.hasMatchingTag(GGJTag.RedBull, currentObstacle))
         {
-            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 7, 0), Quaternion.identity);
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x  - 15, 5, 0), Quaternion.identity);
             spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
             spawnedObstacle.transform.Rotate(new Vector2(0, 0));
         }
         else if (Utilities.hasMatchingTag(GGJTag.Event, currentObstacle))
         {
-            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 2, 0), Quaternion.identity);
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 15, 0, 0), Quaternion.identity);
         }
         else
         {
-            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(Random.Range(-3, 3) - 10, 2, 0), Quaternion.identity);
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 15, 0, 0), Quaternion.identity);
             spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
             spawnedObstacle.transform.Rotate(new Vector2(0, 0));
         }

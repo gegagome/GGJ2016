@@ -30,7 +30,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+        public GameObject hackCollider;
 
+        void Update()
+        {
+            hackCollider.gameObject.layer = gameObject.layer;
+        }
 
 		void Start()
 		{
@@ -64,7 +69,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
-            Debug.Log("move.z : " + move.z);
+            //Debug.Log("move.z : " + move.z);
 			ApplyExtraTurnRotation();
 
 			// control and velocity handling is different when grounded and airborne:
@@ -87,11 +92,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public void VerticalMover (float v) {
 			if (v > 0) {
 				this.MoveUp();
-				Debug.Log(v);
+                hackCollider.gameObject.layer = gameObject.layer;
+                Debug.Log(v);
 			}
 			else if (v < 0) {
 				this.MoveDown();
-				Debug.Log(v);
+                hackCollider.gameObject.layer = gameObject.layer;
+                Debug.Log(v);
 			}
 		}
 

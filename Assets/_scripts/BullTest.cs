@@ -12,4 +12,12 @@ public class BullTest : LaneChanger {
 	void Update () {
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
     }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (Utilities.hasMatchingTag(GGJTag.Player, col.gameObject))
+        {
+            Debug.Log(gameObject.name + " hit " + col.gameObject.name);
+        }
+    }
 }

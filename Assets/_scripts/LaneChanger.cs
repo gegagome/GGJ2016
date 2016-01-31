@@ -32,7 +32,9 @@ public class LaneChanger : MonoBehaviour {
 
     void Update ()
     {
-        myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
+        if (myRB != null) {
+            myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
+        }
     }
 
 	void Start () {
@@ -107,4 +109,9 @@ public class LaneChanger : MonoBehaviour {
 			gameObject.layer = Utilities.AllRows;
 		}
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log(gameObject.name + " hit " + col.gameObject.name);
+    }
 }
