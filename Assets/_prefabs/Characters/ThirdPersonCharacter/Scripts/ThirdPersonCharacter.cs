@@ -16,6 +16,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] float m_GroundCheckDistance = 0.1f;
 
+		public int maxHealth = 4;
+		protected int health;
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
 		bool m_IsGrounded;
@@ -32,6 +34,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void Start()
 		{
+			health = maxHealth;
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
@@ -216,6 +219,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
+		public void ChangeHealth(int changeInhealth)
+		{
+			health += changeInhealth;
+			if (health < 0) {
+				health = 0;
+			}
+			if (health > maxHealth) {
+				health = maxHealth;
+			}
+			Debug.Log ("Changing Health by: " + changeInhealth);
+		}
 		void CheckGroundStatus()
 		{
 			RaycastHit hitInfo;
@@ -239,4 +253,5 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 	}
+
 }
