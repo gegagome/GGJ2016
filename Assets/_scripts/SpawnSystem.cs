@@ -16,6 +16,8 @@ public class SpawnSystem : GGJBehaviour {
     public GameObject fence;
     public GameObject tripleBull;
 
+    public GameObject healthPickup;
+    public GameObject coinPickup;
     public GameObject goal;
 
     public GameObject player;

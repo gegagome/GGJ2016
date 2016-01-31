@@ -100,7 +100,7 @@ public class LaneChanger : GGJBehaviour {
 	public void SetLane (int aLane) {
 		if (aLane == 1) {
 			myLane = LaneOrder.Lane1;
-			Move(6);
+			Move(5);
 			gameObject.layer = Utilities.Row1;
 			if (myRenderer) {
 				myRenderer.sortingOrder = aLane;
@@ -108,7 +108,7 @@ public class LaneChanger : GGJBehaviour {
 		}
 		else if (aLane == 2) {
 			myLane = LaneOrder.Lane2;
-			Move(3);
+			Move(0);
 			gameObject.layer = Utilities.Row2;
 			if (myRenderer) {
 				
@@ -117,7 +117,7 @@ public class LaneChanger : GGJBehaviour {
 		}
 		else if (aLane == 3) {
 			myLane = LaneOrder.Lane3;
-			Move(0);
+			Move(-5);
 			gameObject.layer = Utilities.Row3;
 			if (myRenderer) {
 				
