@@ -24,16 +24,21 @@ public class StageSelect : GGJBehaviour
 	void Update ()
 	{
 		//if (Input.GetButtonDown ("Right1")) { //moves right if not at end of array
-		if (dPadScript1.RightPressed()) {
-			if (selectionIndex < Stage.StageListCount - 1) {
+		//if (dPadScript1.RightPressed()) {
+		Debug.Log("stage list count " + Stage.StageListCount);
+		if (Input.GetKeyDown (KeyCode.D)) { //moves left if not at beginning of array
+			Debug.Log("hit");
+				if (selectionIndex < Stage.StageListCount - 1) {
 				selectionIndex++;
 				UpdateStageInfo ();
 			}
 		}
 
 
-		if (dPadScript1.LeftPressed ()) { //moves left if not at beginning of array
-			if (selectionIndex > 0) {
+		//if (dPadScript1.LeftPressed ()) { //moves left if not at beginning of array
+		if (Input.GetKeyDown (KeyCode.A)) { //moves left if not at beginning of array
+			
+		if (selectionIndex > 0) {
 				selectionIndex--;
 				UpdateStageInfo ();
 			}
@@ -54,17 +59,18 @@ public class StageSelect : GGJBehaviour
 
 	void OnGUI ()
 	{
-			for (int i = 0; i < selectionIndex; i++) {
+		Debug.Log (selectionIndex);
+		//GUI.Label (new Rect (0,0, 200, 200), "Score", numbersDisplay);
+
+		for (int i = 0; i < Stage.StageListCount; i++) {
 				//for loop condition makes selectionIndex always greater than counter, so all textures here will be drawn left of the center
 				GUI.Label (new Rect (Screen.width / 2 - ((selectionIndex - i) * 150) - 50, Screen.height / 3 - 37.5f, 100, 100), "" + (i+1), numbersDisplay);
 			}
-			
 		for (int i = selectionIndex; i < Stage.StageListCount; i++) {
 			//selectionIndex = counter, so texture is drawn exactly at the center
 			//rest of for loop condition makes selectionIndex always less than counter, so rest of textures will be drawn right of the center
 			GUI.Label (new Rect (Screen.width / 2 + ((i - selectionIndex) * 150) - 50, Screen.height / 3 - 37.5f, 100, 100), "" + (i+1), numbersDisplay);
 		}
-			
 		if (drawBox) {
 			GUI.DrawTexture (new Rect (Screen.width / 2 - 75, Screen.height / 3 - 75, 150, 150), selectionBoxIcon); //box should be cocentric with numbers
 		}
