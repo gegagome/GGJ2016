@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerHUD : GGJBehaviour {
 
-	public ThirdPersonCharacter playerCharacter;
+	public OmariTest playerCharacter;
 
 	public Text scoreLabel;
 	public Text LivesLabel;
