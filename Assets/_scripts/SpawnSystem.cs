@@ -47,7 +47,7 @@ public class SpawnSystem : GGJBehaviour {
             victory = true;
             GameObject endGoal = (GameObject)GameObject.Instantiate(goal, new Vector3(player.transform.position.x + 40f, 2, 0), Quaternion.identity);
         }
-        player.GetComponent<Rigidbody>().velocity = new Vector3(10, 0, 0);
+        //player.GetComponent<Rigidbody>().velocity = new Vector3(10, 0, 0);
     }
 
     void initializeObstacleList()

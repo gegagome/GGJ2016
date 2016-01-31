@@ -70,7 +70,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // we use world-relative directions in the case of no main camera
                 //Debug.Log("Vec3.right " + Vector3.right);
                 float h = 1;
-                //m_Move = h*Vector3.right;
+                m_Move = h*Vector3.right;
             }
 #if !MOBILE_INPUT
             //Debug.Log("MOVE: " + m_Move);
