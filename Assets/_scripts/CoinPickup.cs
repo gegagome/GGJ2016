@@ -10,4 +10,8 @@ public class CoinPickup: Pickupable{
 		GameManager.score += scoreIncrease;
 		Utilities.PlayEffect (AudioClipSymbol.CoinGrabbed);
 	}
+
+	void FixedUpdate () {
+		gameObject.transform.Rotate(new Vector3(0f, 2f, 0));
+	}
 }
