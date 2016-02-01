@@ -27,18 +27,19 @@ public class LaneChanger : GGJBehaviour {
 	void Awake () {
 		myRenderer = GetComponent<SpriteRenderer>();
 		myRB = GetComponent<Rigidbody2D>();
-
         if (gameObject.layer.Equals(Utilities.Row1))
         {
-            curZ = 6;
-        } else if (gameObject.layer.Equals(Utilities.Row3))
+            curZ = 5;
+        }
+        else if (gameObject.layer.Equals(Utilities.Row3))
+        {
+            curZ = -5;
+        }
+        else if (gameObject.layer.Equals(Utilities.Row2))
         {
             curZ = 0;
-        } else
-        {
-            curZ = 3;
         }
-	}
+    }
 
     void Update ()
     {
@@ -47,6 +48,7 @@ public class LaneChanger : GGJBehaviour {
 
     protected virtual void baseUpdate()
     {
+
         if (myRB != null && !Utilities.hasMatchingTag(GGJTag.Event, gameObject))
         {
            //Debug.Log("Gameobject: " + gameObject.name);

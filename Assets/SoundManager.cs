@@ -111,6 +111,18 @@ public class SoundManager : MonoBehaviour {
                 effects.clip = effectsList[22];
                 effects.Play();
                 break;
+			case AudioClipSymbol.CoinGrabbed:
+				effects.clip = effectsList [23];
+				effects.Play();
+				break;
+			case AudioClipSymbol.Whip:
+				effects.clip = effectsList [24];
+				effects.Play();
+				break;
+			case AudioClipSymbol.ButtonClick:
+				effects.clip = effectsList [25];
+				effects.Play();
+				break;
             default:
                 break;
         }
@@ -146,7 +158,7 @@ public enum AudioClipSymbol {
     AnnCD1, AnnCD2, AnnCD3, AnnCD4, AnnGoal, AnnLv1, AnnLv2, AnnLv3, AnnLv4,
     AnnRun, PlayerDeath1, PlayerDeath2, PlayerDeath3, PlayerDeath4,
     PlayerHit1, PlayerHit2, PlayerHit3, PlayerJump1, PlayerJump2, PlayerJump3, PlayerJump4,
-    PlayerJump5, PlayerJump6
+    PlayerJump5, PlayerJump6,CoinGrabbed,Whip,ButtonClick
 }
 
 public enum BackgroundAudio
