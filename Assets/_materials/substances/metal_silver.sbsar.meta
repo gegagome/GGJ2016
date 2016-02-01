@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0a41b0094d4234cb0936eb2f8fbfab19
-timeCreated: 1454276100
+timeCreated: 1454287234
 licenseType: Pro
 SubstanceImporter:
   serializedVersion: 5
@@ -9,14 +9,14 @@ SubstanceImporter:
     name: metal_silver
     prototypeName: metal_silver
     shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-    shaderKeywords: 
+    shaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
     renderQueue: -1
-    lightmapFlags: 5
+    lightmapFlags: 1
     inputs:
     - name: silver_color
       value:
         scalar[0]: 1
-        scalar[1]: 0.43448272
+        scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
@@ -251,7 +251,7 @@ SubstanceImporter:
         data:
           first:
             name: _EmissionColor
-          second: {r: 0, g: 0, b: 0, a: 1}
+          second: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
         data:
           first:
             name: _Color
