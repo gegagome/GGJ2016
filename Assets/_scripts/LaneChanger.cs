@@ -29,7 +29,7 @@ public class LaneChanger : GGJBehaviour {
 		myRB = GetComponent<Rigidbody2D>();
         if (gameObject.layer.Equals(Utilities.Row1))
         {
-            curZ = 0;
+            curZ = 5;
         }
         else if (gameObject.layer.Equals(Utilities.Row3))
         {
@@ -37,7 +37,7 @@ public class LaneChanger : GGJBehaviour {
         }
         else if (gameObject.layer.Equals(Utilities.Row2))
         {
-            curZ = 5;
+            curZ = 0;
         }
     }
 
