@@ -4,7 +4,7 @@ using System.Collections;
 public class Fence : LaneChanger {
 	// Update is called once per frame
 	void Update () {
-        //baseUpdate();
+        baseUpdate();
     }
     void OnCollisionEnter2D(Collision2D col)
     {
