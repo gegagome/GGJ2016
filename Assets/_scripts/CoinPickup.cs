@@ -8,6 +8,6 @@ public class CoinPickup: Pickupable{
 	public override void DoPickupTask(GameObject PlayerObject)
 	{
 		GameManager.score += scoreIncrease;
-		Utilities.PlayEffect. (AudioClipSymbol.CoinGrabbed);
+		Utilities.PlayEffect (AudioClipSymbol.CoinGrabbed);
 	}
 }
