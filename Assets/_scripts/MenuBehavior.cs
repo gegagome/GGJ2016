@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class MenuBehavior : MonoBehaviour {
 
-	bool isDead;
 	const string TITLE_DEATH = "you suck";
 	const string TITLE_START = "Welcome";
 	const string TITLE_MAIN_MENU = "Main menu";
@@ -18,7 +17,7 @@ public class MenuBehavior : MonoBehaviour {
 
 	void Start () {
 //		isDead = true;
-		if (!isDead) {
+		if (!GameManager.isDead) {
 			title.text = TITLE_START;
 			topButton.GetComponentInChildren<Text>().text = BUTTON_DIE;
 			lowerButton.GetComponentInChildren<Text>().text = BUTTON_CREDITS;			
@@ -32,18 +31,17 @@ public class MenuBehavior : MonoBehaviour {
 	}
 
 	public void MenuBehaviors (string arg) {
-		Debug.Log("menus are working");
 		switch (arg) {
 
 		case "Top": {
-				if (!isDead)				
+				if (!GameManager.isDead)				
 					Utilities.LoadLevel("StageSelect");
 				else
 					Utilities.LoadLevel("StageSelect");
 				break;
 			}
 		case "Bottom": {
-				if (!isDead)	
+				if (!GameManager.isDead)	
 					Utilities.LoadLevel ("Credits");
 				else
 					Utilities.LoadLevel("MainMenu");
@@ -52,5 +50,7 @@ public class MenuBehavior : MonoBehaviour {
 		default:
 			break;
 		}
+
+		GameManager.isDead = true;
 	}
 }

@@ -17,6 +17,7 @@ public class GameManager : GGJBehaviour {
 	public static GameManager gM;
 	public static bool LevelRunning= true;
     public static bool LevelComplete = false;
+	public static bool isDead;
 
 	protected override void OnStart()
 	{	Player = GameObject.FindGameObjectWithTag ("Player");

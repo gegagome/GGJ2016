@@ -103,6 +103,6 @@ public class StageSelect : GGJBehaviour
 
 	public void GoToArena()
 	{
-		Utilities.LoadLevel("RunningScene");
+		Utilities.LoadLevel("Running Scene");
 	}
 }
