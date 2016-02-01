@@ -47,11 +47,10 @@ public class LaneChanger : GGJBehaviour {
 
     protected virtual void baseUpdate()
     {
-
-        if (myRB != null)
+        if (myRB != null && !Utilities.hasMatchingTag(GGJTag.Event, gameObject))
         {
-            Debug.Log("Gameobject: " + gameObject.name);
-            Debug.Log(gameObject.name + "    cur z   " + curZ);
+           //Debug.Log("Gameobject: " + gameObject.name);
+            //Debug.Log(gameObject.name + "    cur z   " + curZ);
             myRB.transform.position = new Vector3(transform.position.x, transform.position.y, curZ);
         }
         else {
@@ -60,7 +59,8 @@ public class LaneChanger : GGJBehaviour {
     }
 
 	protected override void OnStart () {
-		myLane = LaneOrder.Lane2;
+
+        myLane = LaneOrder.Lane2;
 	}
 //
 //	void Update () {

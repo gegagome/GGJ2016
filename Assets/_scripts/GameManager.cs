@@ -16,6 +16,7 @@ public class GameManager : GGJBehaviour {
 	public static bool savedScore;
 	public static GameManager gM;
 	public static bool LevelRunning= true;
+    public static bool LevelComplete = false;
 
 	protected override void OnStart()
 	{	Player = GameObject.FindGameObjectWithTag ("Player");
