@@ -14,6 +14,7 @@ public class OmariTest : LaneChanger {
  	public SkinnedMeshRenderer mybodyRenderer;
 	public int health;
     public SoundManager sm;
+    public GameObject hackCollider;
 
 	// Use this for initialization
 	protected override void OnStart () {
@@ -39,6 +40,7 @@ public class OmariTest : LaneChanger {
 			gameObject.transform.rotation = Quaternion.Euler (0, 90, 0);
 		
 			m_Animator.SetFloat ("Forward", 1);
+            hackCollider.layer = gameObject.layer;
 		}
 
 		//m_Animator.SetFloat("Turn", 5.364419e-07f);

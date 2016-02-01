@@ -96,13 +96,13 @@ public class SpawnSystem : GGJBehaviour {
         */
         if (Utilities.hasMatchingTag(GGJTag.RedBull, currentObstacle))
         {
-            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x  - 15, 5, 0), Quaternion.identity);
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x  - 25, 5, 0), Quaternion.identity);
             spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
             //spawnedObstacle.transform.Rotate(new Vector2(0, 0));
         }
         else if (Utilities.hasMatchingTag(GGJTag.Event, currentObstacle))
         {
-            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 15, 0, 0), Quaternion.identity);
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 30, 0, 0), Quaternion.identity);
         }
         else if (Utilities.hasMatchingTag(GGJTag.Fence, currentObstacle))
         {
@@ -111,7 +111,7 @@ public class SpawnSystem : GGJBehaviour {
         }
         else
         {
-            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 15, 0, 0), Quaternion.identity);
+            GameObject spawnedObstacle = (GameObject)GameObject.Instantiate(currentObstacle, new Vector3(player.transform.position.x - 25, 0, 0), Quaternion.identity);
             spawnedObstacle.GetComponent<LaneChanger>().SetLane(Random.Range(1, 4));
             //spawnedObstacle.transform.Rotate(new Vector2(0, 0));
         }
